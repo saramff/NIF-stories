@@ -3,8 +3,8 @@
 //                                                                    //  
 ////////////////////////////////////////////////////////////////////////
 
-import { createClient } from "@supabase/supabase-js";
-import { sentences } from "./objects.js";
+// import { createClient } from "@supabase/supabase-js";
+import { stories } from "./objects.js";
 
 
 /**************************************************************************************/
@@ -22,47 +22,6 @@ if (randomNumber < 0.5) {
   incorrectKey = "a";
 }
 
-/**************************************************************************************/
-
-const OBJECTS_URL =
-  "https://raw.githubusercontent.com/saramff/objects-attributes-images/refs/heads/master";
-const TOTAL_IMAGES = 192;  
-
-// Create pictures arrays for objects images
-const objectsImages = Array.from(
-  { length: TOTAL_IMAGES },
-  (_, i) => `${OBJECTS_URL}/object-${i + 1}.jpg`
-);
-
-/**************************************************************************************/
-
-const FALSE_OBJECTS_URL =
-  "https://raw.githubusercontent.com/saramff/objects-attributes-images/refs/heads/master/object-attributes-images_NonExperimental";
-const TOTAL_OJECTS_IMAGES = 48;  
-
-const trueObjectsExperimental = objectsImages.slice(0, TOTAL_OJECTS_IMAGES);
-
-const trueObjectsExperimentalWithResponse = trueObjectsExperimental.map((objImg) => {
-  return {
-    img: objImg,
-    correct_response: correctKey
-  }
-})
-
-// Create pictures arrays for objects images
-const falseObjectsExperimental = Array.from(
-  { length: TOTAL_OJECTS_IMAGES },
-  (_, i) => `${FALSE_OBJECTS_URL}/object-${i + 1}.jpg`
-);
-
-const falseObjectsExperimentalWithResponse = falseObjectsExperimental.map((objImg) => {
-  return {
-    img: objImg,
-    correct_response: incorrectKey
-  }
-})
-
-const objectsExperimental = [...trueObjectsExperimentalWithResponse, ...falseObjectsExperimentalWithResponse];
 
 /**************************************************************************************/
 
@@ -74,39 +33,34 @@ function shuffle(array) {
   }
 }
 
-shuffle(objectsImages);
-shuffle(objectsExperimental);
 
 /**************************************************************************************/
 
-const TOTAL_SENTENCES = 48;
+// Function to randomize positive/negative sentences in experimental sentences (50% each)
+function randomizeExperimentalSentences(story) {
+  const experimentalArray = story.filter((story) => !story.base);
+  const experimentalLength = experimentalArray.length;
+  const randomPosNegArray = [];
 
-// Create function to get a new array with a random slice from other array
-function getRandomSlice(array, sliceSize) {
-  const arraySlice = [];
-
-  for (let i = 0; i < sliceSize; i++) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    const randomElem = array.splice(randomIndex, 1)[0];
-    arraySlice.push(randomElem);
+  for (let i = 0; i < experimentalLength / 2; i++) {
+    randomPosNegArray[i] = "positive";
+    randomPosNegArray[experimentalLength - 1 - i] = "negative";
   }
 
-  return arraySlice;
+  shuffle(randomPosNegArray);
+  console.log(randomPosNegArray);
+
+  experimentalArray.forEach(
+    (experimentalObject, index) =>
+      (experimentalObject.text =
+        experimentalObject.options[randomPosNegArray[index]]),
+  );
+
+  console.log(story);
 }
 
-shuffle(sentences);
-const sentencesSlice = getRandomSlice(sentences, TOTAL_SENTENCES);
-
-// New Array with first half with TRUE sentences and second half with FALSE sentences
-const sentencesWithResponse = sentencesSlice.map((sentence, index) => {
-  return {
-    sentence: index < TOTAL_SENTENCES / 2 ? sentence.true : sentence.false,
-    correct_response: index < TOTAL_SENTENCES / 2 ? correctKey : incorrectKey
-  }
-})
-
-// Shuffle sentences with response
-shuffle(sentencesWithResponse);
+randomizeExperimentalSentences(stories[0]);
+randomizeExperimentalSentences(stories[1]);
 
 
 /**************************************************************************************/
@@ -481,29 +435,29 @@ timeline.push(testObjectsExperimentalImgProcedure);
 // /**************************************************************************************/
 
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_API_KEY
-);
+// const supabase = createClient(
+//   import.meta.env.VITE_SUPABASE_URL,
+//   import.meta.env.VITE_SUPABASE_API_KEY
+// );
 
-const TABLE_NAME = "experimento_objetos_atributos_espanol";
+// const TABLE_NAME = "experimento_objetos_atributos_espanol";
 
-async function saveData(data) {
-  console.log(data);
-  const { error } = await supabase.from(TABLE_NAME).insert({ data });
+// async function saveData(data) {
+//   console.log(data);
+//   const { error } = await supabase.from(TABLE_NAME).insert({ data });
 
-  return { error };
-}
+//   return { error };
+// }
 
-const saveDataBlock = {
-  type: jsPsychCallFunction,
-  func: function() {
-    saveData(jsPsych.data.get())
-  },
-  timing_post_trial: 200
-}
+// const saveDataBlock = {
+//   type: jsPsychCallFunction,
+//   func: function() {
+//     saveData(jsPsych.data.get())
+//   },
+//   timing_post_trial: 200
+// }
 
-timeline.push(saveDataBlock);
+// timeline.push(saveDataBlock);
 
 
 
