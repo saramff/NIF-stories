@@ -282,6 +282,65 @@ timeline.push(sentencesPresentationProcedure);
 
 /**************************************************************************************/
 
+/* Instructions for sentence presentation */
+let instructionsSentencePresentation2 = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <p>Ahora verá una serie de frases en la pantalla.</p>
+    </p>Cada frase describe una característica de los objetos que ha visto anteriormente, que podrá ser verdadera o falsa.</p>
+    </p></p>
+    <p>Si la frase es verdadera, pulse la tecla '${correctKey.toUpperCase()}' (sí).</p>
+    <p>Si la frase es falsa, pulse la tecla '${incorrectKey.toUpperCase()}' (no).</p>
+    </p></p>
+    <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    </p>Por ejemplo: si anteriormente ha visto la imagen de una caja abierta y luego aparece la frase: "La caja estaba cerrada", deberá pulsar "NO".</p>
+    <br />
+    <div>
+      <img src='https://raw.githubusercontent.com/saramff/objects-attributes-images/refs/heads/master/Caja.jpg'  class="img-instructions" />
+    </div>
+    <br />
+    <p>Pulse la barra espaciadora para continuar.<p>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(instructionsSentencePresentation2);
+
+/* Create stimuli array for sentence presentation */
+let sentencesPresentationStimuli2 = stories[1].map((sentence) => {
+  return {
+    stimulus: `
+      <h3 class="sentence">${sentence.text}</h3>
+    `,
+    type: sentence.type,
+    keyword1: sentence.keyword1,
+    keyword2: sentence.keyword2,
+  };
+});
+
+/* Sentences presentation trial */
+let sentencesPresentation2 = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: jsPsych.timelineVariable("stimulus"),
+  choices: [' '],
+  data: {
+    task: "sentences presentation",
+    type: jsPsych.timelineVariable("type"),
+    keyword1: jsPsych.timelineVariable("keyword1"),
+    keyword2: jsPsych.timelineVariable("keyword2"),
+  },
+};
+
+/* Test procedure: fixation + sentences presentation */
+let sentencesPresentationProcedure2 = {
+  timeline: [fixation, sentencesPresentation2],
+  timeline_variables: sentencesPresentationStimuli2,
+};
+timeline.push(sentencesPresentationProcedure2);
+
+
+/**************************************************************************************/
+
 
 /* Instructions for Tetris */
 let instructionstetris = {
