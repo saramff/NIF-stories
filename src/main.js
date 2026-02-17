@@ -58,8 +58,11 @@ function randomizeExperimentalSentences(story) {
 }
 
 shuffle(stories);
-randomizeExperimentalSentences(stories[0]);
-randomizeExperimentalSentences(stories[1]);
+randomizeExperimentalSentences(stories[0].sentences);
+randomizeExperimentalSentences(stories[1].sentences);
+
+const firstStory = stories[0];
+const secondStory = stories[1];
 
 
 /**************************************************************************************/
@@ -99,104 +102,104 @@ timeline.push(html_block_consent);
 // // ////////////////////////////////////////////////////////////////////////
 
 /* fullscreen */
-timeline.push({
-  type: jsPsychFullscreen,
-  fullscreen_mode: true,
-  message: '<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>',
-  button_label:'Continuar',
-  on_finish: function(data){
-    var help_fullscreen = data.success;
-    jsPsych.data.addProperties({fullscreen: help_fullscreen});
-  }
-});
+// timeline.push({
+//   type: jsPsychFullscreen,
+//   fullscreen_mode: true,
+//   message: '<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>',
+//   button_label:'Continuar',
+//   on_finish: function(data){
+//     var help_fullscreen = data.success;
+//     jsPsych.data.addProperties({fullscreen: help_fullscreen});
+//   }
+// });
 
-var participantName = {
-  type: jsPsychSurveyText,
-  preamble: 'A continuación, le preguntaremos algunos datos.',
-  name: 'participantName',
-    button_label:'Continuar',
-    questions: [{prompt:'<div>¿Cuál es su nombre y apellidos?<\div>', rows: 1, columns: 2, required: 'true'}],
-  data: {
-    type:"demo",
-    participantName: participantName,
-  },
-  on_finish: function(data){
-    var help_participantName = data.response.Q0;
-    jsPsych.data.addProperties({participantName: help_participantName});
-  },
-  on_load: function() {
-    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-  }
-};
+// var participantName = {
+//   type: jsPsychSurveyText,
+//   preamble: 'A continuación, le preguntaremos algunos datos.',
+//   name: 'participantName',
+//     button_label:'Continuar',
+//     questions: [{prompt:'<div>¿Cuál es su nombre y apellidos?<\div>', rows: 1, columns: 2, required: 'true'}],
+//   data: {
+//     type:"demo",
+//     participantName: participantName,
+//   },
+//   on_finish: function(data){
+//     var help_participantName = data.response.Q0;
+//     jsPsych.data.addProperties({participantName: help_participantName});
+//   },
+//   on_load: function() {
+//     document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
+//   }
+// };
 
-timeline.push(participantName);
+// timeline.push(participantName);
 
-var centroAsociado = {
-  type: jsPsychSurveyText,
-  name: 'centroAsociado',
-    button_label:'Continuar',
-    questions: [{prompt:'<div>¿Cuál es su centro asociado?<\div>', rows: 1, columns: 2, required: 'true'}],
-  data: {
-    type:"demo",
-    centroAsociado: centroAsociado,
-  },
-  on_finish: function(data){
-    var help_centroAsociado = data.response.Q0;
-    jsPsych.data.addProperties({centroAsociado: help_centroAsociado});
-  },
-  on_load: function() {
-    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-  }
-};
+// var centroAsociado = {
+//   type: jsPsychSurveyText,
+//   name: 'centroAsociado',
+//     button_label:'Continuar',
+//     questions: [{prompt:'<div>¿Cuál es su centro asociado?<\div>', rows: 1, columns: 2, required: 'true'}],
+//   data: {
+//     type:"demo",
+//     centroAsociado: centroAsociado,
+//   },
+//   on_finish: function(data){
+//     var help_centroAsociado = data.response.Q0;
+//     jsPsych.data.addProperties({centroAsociado: help_centroAsociado});
+//   },
+//   on_load: function() {
+//     document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
+//   }
+// };
 
-timeline.push(centroAsociado);
+// timeline.push(centroAsociado);
 
-var age = {
-  type: jsPsychSurveyText,
-    name: 'age',
-    button_label:'Continuar',
-    questions: [{prompt:'<div>¿Cuántos años tiene?<\div>', rows: 1, columns: 2, required: 'true'}],
-  data: {
-    type:"demo",
-    age: age,
-  },
-  on_finish: function(data){
-    var help_age = data.response.Q0;
-    jsPsych.data.addProperties({age: help_age});
-  },
-  on_load: function() {
-    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-  }
-};
+// var age = {
+//   type: jsPsychSurveyText,
+//     name: 'age',
+//     button_label:'Continuar',
+//     questions: [{prompt:'<div>¿Cuántos años tiene?<\div>', rows: 1, columns: 2, required: 'true'}],
+//   data: {
+//     type:"demo",
+//     age: age,
+//   },
+//   on_finish: function(data){
+//     var help_age = data.response.Q0;
+//     jsPsych.data.addProperties({age: help_age});
+//   },
+//   on_load: function() {
+//     document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
+//   }
+// };
 
-timeline.push(age);
+// timeline.push(age);
 
-var demo2 = {
-  type: jsPsychSurveyMultiChoice,
-  questions: [
-    {
-      prompt:'Por favor, seleccione el género con el que se identifica.',
-      name: 'gender',
-      options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
-      required: true,
-      horizontal: true
-    },
-     {
-      prompt:'Por favor, seleccione su lengua materna.',
-      name: 'language',
-      options: ["español", "otro"],
-      required: true,
-      horizontal: true
-    },
-  ],
-  button_label:'Continuar',
-  on_finish: function(data) {
-    var help_gender = data.response.gender;
-    var help_language = data.response.language;
-    jsPsych.data.addProperties({gender: help_gender, language: help_language});
-  }
-};
-timeline.push(demo2);
+// var demo2 = {
+//   type: jsPsychSurveyMultiChoice,
+//   questions: [
+//     {
+//       prompt:'Por favor, seleccione el género con el que se identifica.',
+//       name: 'gender',
+//       options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
+//       required: true,
+//       horizontal: true
+//     },
+//      {
+//       prompt:'Por favor, seleccione su lengua materna.',
+//       name: 'language',
+//       options: ["español", "otro"],
+//       required: true,
+//       horizontal: true
+//     },
+//   ],
+//   button_label:'Continuar',
+//   on_finish: function(data) {
+//     var help_gender = data.response.gender;
+//     var help_language = data.response.language;
+//     jsPsych.data.addProperties({gender: help_gender, language: help_language});
+//   }
+// };
+// timeline.push(demo2);
 
 
 /************************************************************************************************ */
@@ -248,7 +251,7 @@ let instructionsSentencePresentation = {
 timeline.push(instructionsSentencePresentation);
 
 /* Create stimuli array for sentence presentation */
-let sentencesPresentationStimuli = stories[0].map((sentence) => {
+let sentencesPresentationStimuli = firstStory.sentences.map((sentence) => {
   return {
     stimulus: `
       <h3 class="sentence">${sentence.text}</h3>
@@ -282,6 +285,66 @@ timeline.push(sentencesPresentationProcedure);
 
 /**************************************************************************************/
 
+/* Instructions for question presentation */
+let instructionsQuestions = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <p>Ahora verá una serie de frases en la pantalla.</p>
+    </p>Cada frase describe una característica de los objetos que ha visto anteriormente, que podrá ser verdadera o falsa.</p>
+    </p></p>
+    <p>Si la frase es verdadera, pulse la tecla '${correctKey.toUpperCase()}' (sí).</p>
+    <p>Si la frase es falsa, pulse la tecla '${incorrectKey.toUpperCase()}' (no).</p>
+    </p></p>
+    <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    </p>Por ejemplo: si anteriormente ha visto la imagen de una caja abierta y luego aparece la frase: "La caja estaba cerrada", deberá pulsar "NO".</p>
+    <br />
+    <div>
+      <img src='https://raw.githubusercontent.com/saramff/objects-attributes-images/refs/heads/master/Caja.jpg'  class="img-instructions" />
+    </div>
+    <br />
+    <p>Pulse la barra espaciadora para continuar.<p>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(instructionsQuestions);
+
+/* questions presentation trial */
+let questionPresentationTrial = firstStory.questions.map((question) => {
+  return {
+    type: jsPsychSurveyMultiChoice,
+    questions: [
+      {
+        prompt: question.question,
+        name: "response",
+        options: question.answers.map((answer) => answer.answer),
+        required: true
+      }
+    ],
+    data: {
+      task: "questions presentation",
+      question_text: question.question
+    },
+    on_finish: function(data){
+      // respuesta elegida por el participante
+      let chosen = data.response.response;
+      // buscamos esa respuesta dentro del array answers
+      let answerObj = question.answers.find(a => a.answer === chosen);
+      // guardamos si es correcta o no
+      data.correct = answerObj ? answerObj.correct : false;
+    }
+  }
+});
+
+/* Test procedure: fixation + questions presentation */
+let questionPresentationProcedure = {
+  timeline: [fixation, questionPresentationTrial],
+};
+timeline.push(questionPresentationProcedure);
+
+
+/**************************************************************************************/
+
 /* Instructions for sentence presentation */
 let instructionsSentencePresentation2 = {
   type: jsPsychHtmlKeyboardResponse,
@@ -307,7 +370,7 @@ let instructionsSentencePresentation2 = {
 timeline.push(instructionsSentencePresentation2);
 
 /* Create stimuli array for sentence presentation */
-let sentencesPresentationStimuli2 = stories[1].map((sentence) => {
+let sentencesPresentationStimuli2 = secondStory.sentences.map((sentence) => {
   return {
     stimulus: `
       <h3 class="sentence">${sentence.text}</h3>
@@ -337,6 +400,66 @@ let sentencesPresentationProcedure2 = {
   timeline_variables: sentencesPresentationStimuli2,
 };
 timeline.push(sentencesPresentationProcedure2);
+
+
+/**************************************************************************************/
+
+/* Instructions for question presentation */
+let instructionsQuestions2 = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <p>Ahora verá una serie de frases en la pantalla.</p>
+    </p>Cada frase describe una característica de los objetos que ha visto anteriormente, que podrá ser verdadera o falsa.</p>
+    </p></p>
+    <p>Si la frase es verdadera, pulse la tecla '${correctKey.toUpperCase()}' (sí).</p>
+    <p>Si la frase es falsa, pulse la tecla '${incorrectKey.toUpperCase()}' (no).</p>
+    </p></p>
+    <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    </p>Por ejemplo: si anteriormente ha visto la imagen de una caja abierta y luego aparece la frase: "La caja estaba cerrada", deberá pulsar "NO".</p>
+    <br />
+    <div>
+      <img src='https://raw.githubusercontent.com/saramff/objects-attributes-images/refs/heads/master/Caja.jpg'  class="img-instructions" />
+    </div>
+    <br />
+    <p>Pulse la barra espaciadora para continuar.<p>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(instructionsQuestions2);
+
+/* questions presentation trial */
+let questionPresentationTrial2 = secondStory.questions.map((question) => {
+  return {
+    type: jsPsychSurveyMultiChoice,
+    questions: [
+      {
+        prompt: question.question,
+        name: "response",
+        options: question.answers.map((answer) => answer.answer),
+        required: true
+      }
+    ],
+    data: {
+      task: "questions presentation",
+      question_text: question.question
+    },
+    on_finish: function(data){
+      // respuesta elegida por el participante
+      let chosen = data.response.response;
+      // buscamos esa respuesta dentro del array answers
+      let answerObj = question.answers.find(a => a.answer === chosen);
+      // guardamos si es correcta o no
+      data.correct = answerObj ? answerObj.correct : false;
+    }
+  }
+});
+
+/* Test procedure: fixation + questions presentation */
+let questionPresentationProcedure2 = {
+  timeline: [fixation, questionPresentationTrial2],
+};
+timeline.push(questionPresentationProcedure2);
 
 
 /**************************************************************************************/

@@ -1,128 +1,376 @@
 export const stories = [
-  [
-    {
-      base: true,
-      text: "Imagina que estás buscando un piso para alquilar. Hoy has quedado con un agente inmobiliario para visitar uno que está semiamueblado. Vas con la intención de fijarte en todos los detalles, porque más tarde tendrás que describírselo a tu pareja, con quien tienes pensado compartirlo. Llegas al barrio en el que está situado el piso y tomas notas de algunos detalles que consideras importante.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "El polideportivo sí tiene piscina.",
-        negative: "El polideportivo no tiene piscina.",
+  {
+    story: "a",
+    sentences: [
+      {
+        base: true,
+        text: "Imagina que estás buscando un piso para alquilar. Hoy has quedado con un agente inmobiliario para visitar uno que está semiamueblado. Vas con la intención de fijarte en todos los detalles, porque más tarde tendrás que describírselo a tu pareja, con quien tienes pensado compartirlo. Llegas al barrio en el que está situado el piso y tomas notas de algunos detalles que consideras importante.",
       },
-      keyword1: "polideportivo",
-      keyword2: "piscina"
-    },
-    {
-      base: true,
-      text: "Las farolas tienen un diseño sencillo.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "El ambulatorio sí tiene urgencias.",
-        negative: "El ambulatorio no tiene urgencias.",
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "El polideportivo sí tiene piscina.",
+          negative: "El polideportivo no tiene piscina.",
+        },
+        keyword1: "polideportivo",
+        keyword2: "piscina",
       },
-    },
-    {
-      base: true,
-      text: "Los colegios tienen jornada partida.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "El supermercado sí tiene pescadería.",
-        negative: "El supermercado no tiene pescadería.",
+      {
+        base: true,
+        text: "Las farolas tienen un diseño sencillo.",
       },
-    },
-    {
-      base: true,
-      text: "Las aceras son anchas y permiten caminar con comodidad.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "La plaza sí tiene fuentes.",
-        negative: "La plaza no tiene fuentes.",
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "El ambulatorio sí tiene urgencias.",
+          negative: "El ambulatorio no tiene urgencias.",
+        },
       },
-    },
-    {
-      base: true,
-      text: "Hay bancos repartidos a lo largo de la calle principal.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "La cafetería sí tiene terraza.",
-        negative: "La cafetería no tiene terraza.",
+      {
+        base: true,
+        text: "Los colegios tienen jornada partida.",
       },
-    },
-  ],
-  [
-    {
-      base: true,
-      text: "aaaaa",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "aaaaaa sí tiene piscina.",
-        negative: "aaaaaa no tiene piscina.",
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "El supermercado sí tiene pescadería.",
+          negative: "El supermercado no tiene pescadería.",
+        },
       },
-    },
-    {
-      base: true,
-      text: "aaaaaaa",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "aaaaa sí tiene urgencias.",
-        negative: "aaaaa no tiene urgencias.",
+      {
+        base: true,
+        text: "Las aceras son anchas y permiten caminar con comodidad.",
       },
-    },
-    {
-      base: true,
-      text: "aaaaa.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "aaaaaaa sí tiene pescadería.",
-        negative: "aaaaaaa no tiene pescadería.",
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "La plaza sí tiene fuentes.",
+          negative: "La plaza no tiene fuentes.",
+        },
       },
-    },
-    {
-      base: true,
-      text: "aaaaaa.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "aaaaaa sí tiene fuentes.",
-        negative: "aaaaaa no tiene fuentes.",
+      {
+        base: true,
+        text: "Hay bancos repartidos a lo largo de la calle principal.",
       },
-    },
-    {
-      base: true,
-      text: "aaaaaa.",
-    },
-    {
-      base: false,
-      text: "",
-      options: {
-        positive: "aaaaaa sí tiene terraza.",
-        negative: "aaaaaa no tiene terraza.",
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "La cafetería sí tiene terraza.",
+          negative: "La cafetería no tiene terraza.",
+        },
       },
-    },
-  ],
+    ],
+    questions: [
+      {
+        question: "¿Cómo llevaba el pelo el agente inmobiliario?",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "qqqqq",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "aaaa",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "sssss",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "ddddd",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "eeeee",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "fffff",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    story: "b",
+    sentences: [
+      {
+        base: true,
+        text: "aaaaa",
+      },
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "aaaaaa sí tiene piscina.",
+          negative: "aaaaaa no tiene piscina.",
+        },
+      },
+      {
+        base: true,
+        text: "aaaaaaa",
+      },
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "aaaaa sí tiene urgencias.",
+          negative: "aaaaa no tiene urgencias.",
+        },
+      },
+      {
+        base: true,
+        text: "aaaaa.",
+      },
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "aaaaaaa sí tiene pescadería.",
+          negative: "aaaaaaa no tiene pescadería.",
+        },
+      },
+      {
+        base: true,
+        text: "aaaaaa.",
+      },
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "aaaaaa sí tiene fuentes.",
+          negative: "aaaaaa no tiene fuentes.",
+        },
+      },
+      {
+        base: true,
+        text: "aaaaaa.",
+      },
+      {
+        base: false,
+        text: "",
+        options: {
+          positive: "aaaaaa sí tiene terraza.",
+          negative: "aaaaaa no tiene terraza.",
+        },
+      },
+    ],
+    questions: [
+      {
+        question: "22222¿Cómo llevaba el pelo el agente inmobiliario?",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "2222222qqqqq",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "222222aaaa",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "22222sssss",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "2222ddddd",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "22222eeee",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+      {
+        question: "22222fffff",
+        answers: [
+          {
+            correct: true,
+            answer: "Castaño y corto",
+          },
+          {
+            correct: false,
+            answer: "Rubio y largo",
+          },
+          {
+            correct: false,
+            answer: "Canoso y corto",
+          },
+        ],
+      },
+    ],
+  },
 ];
