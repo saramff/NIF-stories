@@ -11,6 +11,8 @@ export const stories = [
         positive: "El polideportivo sí tiene piscina.",
         negative: "El polideportivo no tiene piscina.",
       },
+      keyword1: "polideportivo",
+      keyword2: "piscina"
     },
     {
       base: true,
