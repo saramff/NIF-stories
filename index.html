@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,10 +15,9 @@
     <script src="https://unpkg.com/@jspsych/plugin-call-function@2.0.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.0.0"></script>
 
-    
     <script type="module" src="./src/main.js"></script>
     <script type="module" src="./src/tetris.js"></script>
-    
+
     <link
       href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css"
       rel="stylesheet"
@@ -77,6 +76,8 @@
       }
 
       .sentence {
+        line-height: 1.5;
+        margin: 50px;
         text-align: center;
         font-size: 40px;
         font-weight: normal;
@@ -84,7 +85,7 @@
 
       .keys {
         font-size: 2rem;
-               
+
         .right {
           position: fixed;
           bottom: 20px;

@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 // import { createClient } from "@supabase/supabase-js";
-import { stories } from "./objects.js";
+import { stories, words } from "./objects.js";
 
 
 /**************************************************************************************/
@@ -63,6 +63,16 @@ randomizeExperimentalSentences(stories[1].sentences);
 
 const firstStory = stories[0];
 const secondStory = stories[1];
+
+
+/**************************************************************************************/
+
+words.forEach((word) => {
+  if (word.old) word.correctResponse = correctKey;
+  else word.correctResponse = incorrectKey;  
+})
+
+shuffle(words);
 
 
 /**************************************************************************************/
@@ -493,60 +503,60 @@ timeline.push(tetris);
 /**************************************************************************************/
 
 
-// /* Instructions for objects experimental images presentation */
-// let instructionsObjectsNamePresentation = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: `
-//     <p>Ahora realizará la siguiente tarea:</p>
-//     <p>Si ha visto antes el objeto, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
-//     <p>Si no ha visto antes el objeto, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
-//     <p>De nuevo, le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-//     <p>Pulse la barra espaciadora para comenzar.</p>
-//   `,
-//   choices: [' '],
-//   post_trial_gap: 500,
-// };
-// timeline.push(instructionsObjectsNamePresentation);
+/* Instructions for words presentation */
+let instructionsWordsPresentation = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <p>Ahora realizará la siguiente tarea:</p>
+    <p>Si ha visto antes el objeto, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
+    <p>Si no ha visto antes el objeto, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
+    <p>De nuevo, le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    <p>Pulse la barra espaciadora para comenzar.</p>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(instructionsWordsPresentation);
 
-// /* Create stimuli array for objects experimental images presentation */
-// let objectsExperimentalRecognitionStimuli = objectsExperimental.map((objExperimental) => {
-//   return {
-//     stimulus: `
-//       <img class="object-img" src="${objExperimental.img}">
-//       <div class="keys">
-//         <p class="${correctKey === 'a' ? 'left' : 'right'}">PRESENTE</p>
-//         <p class="${correctKey === 'a' ? 'right' : 'left'}">NO PRESENTE</p>
-//       </div>
-//     `,
-//     correct_response: objExperimental.correct_response
-//   };
-// });
+/* Create stimuli array for words presentation */
+let wordsStimuli = words.map((word) => {
+  return {
+    stimulus: `
+      <h3 class="sentence">${word.word}</h3>
+      <div class="keys">
+        <p class="${correctKey === 'a' ? 'left' : 'right'}">PRESENTE</p>
+        <p class="${correctKey === 'a' ? 'right' : 'left'}">NO PRESENTE</p>
+      </div>
+    `,
+    correct_response: word.correctResponse
+  };
+});
 
-// /* Objects experimental images presentation trial */
-// let testObjectsExperimentalImg = {
-//   type: jsPsychHtmlKeyboardResponse,
-//   stimulus: jsPsych.timelineVariable("stimulus"),
-//   choices: ['a', 'l'],
-//   data: {
-//     task: "response objects experimental images test",
-//     correct_response: jsPsych.timelineVariable("correct_response"),
-//   },
-//   on_finish: function (data) {
-//     data.correct = jsPsych.pluginAPI.compareKeys(
-//       data.response,
-//       data.correct_response
-//     );
-//     data.correct_response_meaning = correctKey === data.correct_response ? "PRESENTE" : "NO PRESENTE";
-//   },
-// };
+/* words presentation trial */
+let testWords = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: jsPsych.timelineVariable("stimulus"),
+  choices: ['a', 'l'],
+  data: {
+    task: "response words test",
+    correct_response: jsPsych.timelineVariable("correct_response"),
+  },
+  on_finish: function (data) {
+    data.correct = jsPsych.pluginAPI.compareKeys(
+      data.response,
+      data.correct_response
+    );
+    data.correct_response_meaning = correctKey === data.correct_response ? "PRESENTE" : "NO PRESENTE";
+  },
+};
 
-// /* Test procedure: fixation + objects experimental images presentation */
-// let testObjectsExperimentalImgProcedure = {
-//   timeline: [fixation, testObjectsExperimentalImg],
-//   timeline_variables: objectsExperimentalRecognitionStimuli,
-//   randomize_order: true, // Randomize objects name order
-// };
-// timeline.push(testObjectsExperimentalImgProcedure);
+/* Test procedure: fixation + words presentation */
+let testWordsProcedure = {
+  timeline: [fixation, testWords],
+  timeline_variables: wordsStimuli,
+  randomize_order: true, // Randomize objects name order
+};
+timeline.push(testWordsProcedure);
 
 
 // /**************************************************************************************/

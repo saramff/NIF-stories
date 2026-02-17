@@ -374,3 +374,126 @@ export const stories = [
     ],
   },
 ];
+
+export const words = [
+  {
+    word: "patata1",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata2",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata3",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata4",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata5",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata6",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata7",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata8",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata9",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata10",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata11",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "patata12",
+    old: true,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo1",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo2",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo3",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo4",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo5",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo6",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo7",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo8",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo9",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo10",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo11",
+    old: false,
+    correctResponse: "",
+  },
+  {
+    word: "chorizo12",
+    old: false,
+    correctResponse: "",
+  },
+];
