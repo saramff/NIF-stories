@@ -490,7 +490,18 @@ let instructionstetris = {
   stimulus: `
   <div class="instrucciones">
     <p>Ahora jugará al Tetris durante aproximadamente 20 minutos.</p>
-    <p>En Tetris, hay piezas de diferentes formas que caen desde la parte superior de la pantalla. <br /> Su objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas. <br /> Cuando una línea se completa, desaparece. <br /> Si las piezas se acumulan hasta llegar a la parte superior, pierde.</p> <p>Controles:</p> <strong>Flecha izquierda:</strong> Mueve la pieza a la izquierda <br /> <strong>Flecha derecha:</strong> Mueve la pieza a la derecha <br /> <strong>Flecha arriba:</strong> Gira la pieza <br /> <strong>Flecha abajo:</strong> Acelera la caída <p>Cuando aparezca la pantalla del juego, haga clic en <strong>"Play"</strong> para iniciar.</p> <p>Si pierde, seleccione <strong>"Try again"</strong> para reiniciar. <br /> Jugará de esta manera hasta que se agote el tiempo.</p> <p>Pulse la barra espaciadora para comenzar.</p>
+    <p>En Tetris, hay piezas de diferentes formas que caen desde la parte superior de la pantalla.</p>
+    <p>Su objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas.</p>
+    <p>Cuando una línea se completa, desaparece. Si las piezas se acumulan hasta llegar a la parte superior, pierde.</p>
+    <p>Controles:</p>
+    <p><strong>Flecha izquierda:</strong> Mueve la pieza a la izquierda</p>
+    <p><strong>Flecha derecha:</strong> Mueve la pieza a la derecha</p>
+    <p><strong>Flecha arriba:</strong> Gira la pieza</p>
+    <p><strong>Flecha abajo:</strong> Acelera la caída</p>
+    <p>Cuando aparezca la pantalla del juego, haga clic en <strong>"Play"</strong> para iniciar.</p>
+    <p>Si pierde, seleccione <strong>"Try again"</strong> para reiniciar. Jugará de esta manera hasta que se agote el tiempo.</p>
+    <br />
+    <p><strong>Pulse la barra espaciadora para comenzar.</strong></p>
   </div>
   `,
   choices: [' '],
