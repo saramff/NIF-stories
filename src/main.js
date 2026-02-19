@@ -543,7 +543,7 @@ const supabase = createClient(
   import.meta.env.VITE_SUPABASE_API_KEY
 );
 
-const TABLE_NAME = "experimento_objetos_atributos_espanol";
+const TABLE_NAME = "StoriesNIFMainObject";
 
 async function saveData(data) {
   console.log(data);
