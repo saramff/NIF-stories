@@ -188,7 +188,10 @@ let fixation = {
 /* Welcome message trial */
 let welcome = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "Bienvenido al experimento. <br /> </p></p> Pulse la barra espaciadora para comenzar.",
+  stimulus: `<div class="instrucciones">
+  <p>Bienvenido al experimento.</p>
+  <p>Pulse la barra espaciadora para comenzar.</p>
+</div>`,
   choices: [' '],
 };
 timeline.push(welcome);
@@ -200,20 +203,43 @@ timeline.push(welcome);
 let instructionsSentencePresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
+  <div class="instrucciones">
     <p>Ahora va a leer una historia.</p>
     <p>La historia se presentará <strong>en segmentos</strong> (por ejemplo, una frase cada vez).</p>
     <p>Su tarea consiste únicamente en <strong>leer detenidamente</strong> la información.</p>
-    <p>Es importante que preste atención, porque <strong>al finalizar la lectura</strong> le haremos <strong>unas preguntas</strong> sobre el contenido del texto.</p>
-    <p>Puede tomarse el tiempo que necesite para leer cada fragmento: <br>
+    <p><strong>Muy importante:</strong> preste mucha atención durante la lectura, porque <strong>después le haremos unas preguntas</strong> sobre el contenido del texto.</p>
+    <p>Para poder responder correctamente, asegúrese de <strong>comprender bien cada fragmento</strong> antes de pasar al siguiente.</p>
+    <p>Puede tomarse el tiempo que necesite para leer cada fragmento:<br>
     <strong>usted</strong> decidirá cuándo pasar al siguiente.</p>
     <p>Para avanzar y ver el siguiente fragmento, pulse la <strong>barra espaciadora</strong>.</p>
     <br />
-    <p>Pulse la barra espaciadora para comenzar.<p>
+    <p><strong>Pulse la barra espaciadora para comenzar.</strong></p>
+  </div>
   `,
   choices: [' '],
   post_trial_gap: 500,
 };
 timeline.push(instructionsSentencePresentation);
+
+
+/* Instructions for sentence presentation reminder */
+let instructionsSentencePresentation_reminder = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+  <div class="instrucciones">
+    <p>⚠️ <strong>Recuerda:</strong></p>
+    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>.</p>
+    <p>Al finalizar la lectura, <strong>responderás preguntas sobre su contenido</strong>.</p>
+    <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
+    <br />
+    <p><strong>Pulse la barra espaciadora para comenzar la lectura.</strong></p>
+  </div>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(instructionsSentencePresentation_reminder);
+
 
 /* Create stimuli array for sentence presentation */
 let sentencesPresentationStimuli = firstStory.sentences.map((sentence) => {
@@ -247,6 +273,20 @@ let sentencesPresentationProcedure = {
 };
 timeline.push(sentencesPresentationProcedure);
 
+/*End of story instructions */
+let endOfStory1 = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+  <div class="instrucciones">
+    <p>— Fin del texto —</p>
+    <br />
+    <p><strong>Pulse la barra espaciadora para continuar.</strong></p>
+  </div>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(endOfStory1);
 
 /**************************************************************************************/
 
@@ -254,11 +294,13 @@ timeline.push(sentencesPresentationProcedure);
 let instructionsQuestions = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
+  <div class="instrucciones">
     <p>A continuación verá una serie de preguntas sobre el texto que acaba de leer.</p>
     <p>Lea cada pregunta con atención y seleccione con el <strong>ratón</strong> la respuesta que considere correcta.</p>
     <p>No hay límite de tiempo, pero intente responder basándose únicamente en la información presentada en el texto.</p>
     <br />
     <p>Pulse la barra espaciadora para comenzar.<p>
+  </div>
   `,
   choices: [' '],
   post_trial_gap: 500,
@@ -305,6 +347,7 @@ timeline.push(questionPresentationProcedure);
 let instructionsSentencePresentation2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
+  <div class="instrucciones">
     <p>Ahora va a leer un segundo texto.</p>
     <p>Al igual que antes, el texto se presentará en pantallas sucesivas.</p>
     <p>Su tarea es la misma: <strong>lea detenidamente</strong> cada parte del texto.</p>
@@ -313,11 +356,30 @@ let instructionsSentencePresentation2 = {
     Para avanzar, pulse la <strong>barra espaciadora</strong>.</p>
     <br />
     <p>Pulse la barra espaciadora para comenzar.<p>
+   </div>
   `,
   choices: [' '],
   post_trial_gap: 500,
 };
 timeline.push(instructionsSentencePresentation2);
+
+/* Instructions for sentence presentation reminder 2 */
+let instructionsSentencePresentation_reminder2 = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+  <div class="instrucciones">
+    <p>⚠️ <strong>Recuerda:</strong></p>
+    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>.</p>
+    <p>Al finalizar la lectura, <strong>responderás preguntas sobre su contenido</strong>.</p>
+    <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
+    <br />
+    <p><strong>Pulse la barra espaciadora para comenzar la lectura.</strong></p>
+  </div>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(instructionsSentencePresentation_reminder2);
 
 /* Create stimuli array for sentence presentation */
 let sentencesPresentationStimuli2 = secondStory.sentences.map((sentence) => {
@@ -351,6 +413,20 @@ let sentencesPresentationProcedure2 = {
 };
 timeline.push(sentencesPresentationProcedure2);
 
+/* End of story 2 */
+let endOfStory2 = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+  <div class="instrucciones">
+    <p>— Fin del texto —</p>
+    <br />
+    <p><strong>Pulse la barra espaciadora para continuar.</strong></p>
+  </div>
+  `,
+  choices: [' '],
+  post_trial_gap: 500,
+};
+timeline.push(endOfStory2);
 
 /**************************************************************************************/
 
@@ -358,11 +434,13 @@ timeline.push(sentencesPresentationProcedure2);
 let instructionsQuestions2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
+  <div class="instrucciones">
     <p>A continuación verá una serie de preguntas sobre este segundo texto que acaba de leer.</p>
     <p>Lea cada pregunta con atención y seleccione con el <strong>ratón</strong> la respuesta que considere correcta.</p>
     <p>Intente responder basándose únicamente en la información presentada en el texto.</p>
     <br />
     <p>Pulse la barra espaciadora para comenzar.<p>
+  </div>
   `,
   choices: [' '],
   post_trial_gap: 500,
@@ -410,8 +488,10 @@ timeline.push(questionPresentationProcedure2);
 let instructionstetris = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
+  <div class="instrucciones">
     <p>Ahora jugará al Tetris durante aproximadamente 20 minutos.</p>
     <p>En Tetris, hay piezas de diferentes formas que caen desde la parte superior de la pantalla. <br /> Su objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas. <br /> Cuando una línea se completa, desaparece. <br /> Si las piezas se acumulan hasta llegar a la parte superior, pierde.</p> <p>Controles:</p> <strong>Flecha izquierda:</strong> Mueve la pieza a la izquierda <br /> <strong>Flecha derecha:</strong> Mueve la pieza a la derecha <br /> <strong>Flecha arriba:</strong> Gira la pieza <br /> <strong>Flecha abajo:</strong> Acelera la caída <p>Cuando aparezca la pantalla del juego, haga clic en <strong>"Play"</strong> para iniciar.</p> <p>Si pierde, seleccione <strong>"Try again"</strong> para reiniciar. <br /> Jugará de esta manera hasta que se agote el tiempo.</p> <p>Pulse la barra espaciadora para comenzar.</p>
+  </div>
   `,
   choices: [' '],
   post_trial_gap: 500,
@@ -438,6 +518,7 @@ timeline.push(tetris);
 let instructionsWordsPresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
+  <div class="instrucciones">
     <p>Ahora realizará la siguiente tarea:</p>
     <p>A continuación verá una serie de <strong>palabras</strong> en la pantalla que se mostrarán una a una.</p>
     <p>Algunas de estas palabras han podido aparecer en los textos que leyó anteriormente y otras serán nuevas.</p>
@@ -448,6 +529,7 @@ let instructionsWordsPresentation = {
     <p><strong>Si no ha visto<strong> antes el objeto, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
     <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
     <p>Pulse la barra espaciadora para comenzar.</p>
+  </div>
   `,
   choices: [' '],
   post_trial_gap: 500,
@@ -530,7 +612,12 @@ timeline.push(saveDataBlock);
 /* Goodbye message trial */
 let goodbye = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: "Muchas gracias por haber realizado el experimento. <br /> </p></p> Pulsa la barra espaciadora para salir.",
+  stimulus: `
+    <div class="instrucciones">
+      <p>Muchas gracias por haber realizado el experimento.</p>
+      <p>Pulsa la barra espaciadora para salir.</p>
+    </div>
+  `,
   choices: [' '],
 };
 timeline.push(goodbye);
