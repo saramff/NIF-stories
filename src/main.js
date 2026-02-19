@@ -3,7 +3,7 @@
 //                                                                    //  
 ////////////////////////////////////////////////////////////////////////
 
-// import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 import { stories, words } from "./objects.js";
 
 
@@ -107,109 +107,109 @@ let html_block_consent = {
 };
 timeline.push(html_block_consent);
 
-// // ////////////////////////////////////////////////////////////////////////
-// // //                           Demographic  variables                   //
-// // ////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//                           Demographic  variables                   //
+////////////////////////////////////////////////////////////////////////
 
 /* fullscreen */
-// timeline.push({
-//   type: jsPsychFullscreen,
-//   fullscreen_mode: true,
-//   message: '<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>',
-//   button_label:'Continuar',
-//   on_finish: function(data){
-//     var help_fullscreen = data.success;
-//     jsPsych.data.addProperties({fullscreen: help_fullscreen});
-//   }
-// });
+timeline.push({
+  type: jsPsychFullscreen,
+  fullscreen_mode: true,
+  message: '<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>',
+  button_label:'Continuar',
+  on_finish: function(data){
+    var help_fullscreen = data.success;
+    jsPsych.data.addProperties({fullscreen: help_fullscreen});
+  }
+});
 
-// var participantName = {
-//   type: jsPsychSurveyText,
-//   preamble: 'A continuación, le preguntaremos algunos datos.',
-//   name: 'participantName',
-//     button_label:'Continuar',
-//     questions: [{prompt:'<div>¿Cuál es su nombre y apellidos?<\div>', rows: 1, columns: 2, required: 'true'}],
-//   data: {
-//     type:"demo",
-//     participantName: participantName,
-//   },
-//   on_finish: function(data){
-//     var help_participantName = data.response.Q0;
-//     jsPsych.data.addProperties({participantName: help_participantName});
-//   },
-//   on_load: function() {
-//     document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-//   }
-// };
+var participantName = {
+  type: jsPsychSurveyText,
+  preamble: 'A continuación, le preguntaremos algunos datos.',
+  name: 'participantName',
+    button_label:'Continuar',
+    questions: [{prompt:'<div>¿Cuál es su nombre y apellidos?<\div>', rows: 1, columns: 2, required: 'true'}],
+  data: {
+    type:"demo",
+    participantName: participantName,
+  },
+  on_finish: function(data){
+    var help_participantName = data.response.Q0;
+    jsPsych.data.addProperties({participantName: help_participantName});
+  },
+  on_load: function() {
+    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
+  }
+};
 
-// timeline.push(participantName);
+timeline.push(participantName);
 
-// var centroAsociado = {
-//   type: jsPsychSurveyText,
-//   name: 'centroAsociado',
-//     button_label:'Continuar',
-//     questions: [{prompt:'<div>¿Cuál es su centro asociado?<\div>', rows: 1, columns: 2, required: 'true'}],
-//   data: {
-//     type:"demo",
-//     centroAsociado: centroAsociado,
-//   },
-//   on_finish: function(data){
-//     var help_centroAsociado = data.response.Q0;
-//     jsPsych.data.addProperties({centroAsociado: help_centroAsociado});
-//   },
-//   on_load: function() {
-//     document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-//   }
-// };
+var centroAsociado = {
+  type: jsPsychSurveyText,
+  name: 'centroAsociado',
+    button_label:'Continuar',
+    questions: [{prompt:'<div>¿Cuál es su centro asociado?<\div>', rows: 1, columns: 2, required: 'true'}],
+  data: {
+    type:"demo",
+    centroAsociado: centroAsociado,
+  },
+  on_finish: function(data){
+    var help_centroAsociado = data.response.Q0;
+    jsPsych.data.addProperties({centroAsociado: help_centroAsociado});
+  },
+  on_load: function() {
+    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
+  }
+};
 
-// timeline.push(centroAsociado);
+timeline.push(centroAsociado);
 
-// var age = {
-//   type: jsPsychSurveyText,
-//     name: 'age',
-//     button_label:'Continuar',
-//     questions: [{prompt:'<div>¿Cuántos años tiene?<\div>', rows: 1, columns: 2, required: 'true'}],
-//   data: {
-//     type:"demo",
-//     age: age,
-//   },
-//   on_finish: function(data){
-//     var help_age = data.response.Q0;
-//     jsPsych.data.addProperties({age: help_age});
-//   },
-//   on_load: function() {
-//     document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-//   }
-// };
+var age = {
+  type: jsPsychSurveyText,
+    name: 'age',
+    button_label:'Continuar',
+    questions: [{prompt:'<div>¿Cuántos años tiene?<\div>', rows: 1, columns: 2, required: 'true'}],
+  data: {
+    type:"demo",
+    age: age,
+  },
+  on_finish: function(data){
+    var help_age = data.response.Q0;
+    jsPsych.data.addProperties({age: help_age});
+  },
+  on_load: function() {
+    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
+  }
+};
 
-// timeline.push(age);
+timeline.push(age);
 
-// var demo2 = {
-//   type: jsPsychSurveyMultiChoice,
-//   questions: [
-//     {
-//       prompt:'Por favor, seleccione el género con el que se identifica.',
-//       name: 'gender',
-//       options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
-//       required: true,
-//       horizontal: true
-//     },
-//      {
-//       prompt:'Por favor, seleccione su lengua materna.',
-//       name: 'language',
-//       options: ["español", "otro"],
-//       required: true,
-//       horizontal: true
-//     },
-//   ],
-//   button_label:'Continuar',
-//   on_finish: function(data) {
-//     var help_gender = data.response.gender;
-//     var help_language = data.response.language;
-//     jsPsych.data.addProperties({gender: help_gender, language: help_language});
-//   }
-// };
-// timeline.push(demo2);
+var demo2 = {
+  type: jsPsychSurveyMultiChoice,
+  questions: [
+    {
+      prompt:'Por favor, seleccione el género con el que se identifica.',
+      name: 'gender',
+      options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
+      required: true,
+      horizontal: true
+    },
+     {
+      prompt:'Por favor, seleccione su lengua materna.',
+      name: 'language',
+      options: ["español", "otro"],
+      required: true,
+      horizontal: true
+    },
+  ],
+  button_label:'Continuar',
+  on_finish: function(data) {
+    var help_gender = data.response.gender;
+    var help_language = data.response.language;
+    jsPsych.data.addProperties({gender: help_gender, language: help_language});
+  }
+};
+timeline.push(demo2);
 
 
 /************************************************************************************************ */
@@ -538,29 +538,29 @@ timeline.push(testWordsProcedure);
 // /**************************************************************************************/
 
 
-// const supabase = createClient(
-//   import.meta.env.VITE_SUPABASE_URL,
-//   import.meta.env.VITE_SUPABASE_API_KEY
-// );
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_API_KEY
+);
 
-// const TABLE_NAME = "experimento_objetos_atributos_espanol";
+const TABLE_NAME = "experimento_objetos_atributos_espanol";
 
-// async function saveData(data) {
-//   console.log(data);
-//   const { error } = await supabase.from(TABLE_NAME).insert({ data });
+async function saveData(data) {
+  console.log(data);
+  const { error } = await supabase.from(TABLE_NAME).insert({ data });
 
-//   return { error };
-// }
+  return { error };
+}
 
-// const saveDataBlock = {
-//   type: jsPsychCallFunction,
-//   func: function() {
-//     saveData(jsPsych.data.get())
-//   },
-//   timing_post_trial: 200
-// }
+const saveDataBlock = {
+  type: jsPsychCallFunction,
+  func: function() {
+    saveData(jsPsych.data.get())
+  },
+  timing_post_trial: 200
+}
 
-// timeline.push(saveDataBlock);
+timeline.push(saveDataBlock);
 
 
 
