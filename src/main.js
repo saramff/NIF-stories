@@ -123,49 +123,9 @@ timeline.push({
   }
 });
 
-var participantName = {
-  type: jsPsychSurveyText,
-  preamble: 'A continuación, le preguntaremos algunos datos.',
-  name: 'participantName',
-    button_label:'Continuar',
-    questions: [{prompt:'<div>¿Cuál es su nombre y apellidos?<\div>', rows: 1, columns: 2, required: 'true'}],
-  data: {
-    type:"demo",
-    participantName: participantName,
-  },
-  on_finish: function(data){
-    var help_participantName = data.response.Q0;
-    jsPsych.data.addProperties({participantName: help_participantName});
-  },
-  on_load: function() {
-    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-  }
-};
-
-timeline.push(participantName);
-
-var centroAsociado = {
-  type: jsPsychSurveyText,
-  name: 'centroAsociado',
-    button_label:'Continuar',
-    questions: [{prompt:'<div>¿Cuál es su centro asociado?<\div>', rows: 1, columns: 2, required: 'true'}],
-  data: {
-    type:"demo",
-    centroAsociado: centroAsociado,
-  },
-  on_finish: function(data){
-    var help_centroAsociado = data.response.Q0;
-    jsPsych.data.addProperties({centroAsociado: help_centroAsociado});
-  },
-  on_load: function() {
-    document.querySelector('.jspsych-btn').style.marginTop = '20px'; // Adjust margin as needed
-  }
-};
-
-timeline.push(centroAsociado);
-
 var age = {
   type: jsPsychSurveyText,
+    preamble: 'A continuación, le preguntaremos algunos datos.',
     name: 'age',
     button_label:'Continuar',
     questions: [{prompt:'<div>¿Cuántos años tiene?<\div>', rows: 1, columns: 2, required: 'true'}],
