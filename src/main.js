@@ -315,7 +315,7 @@ let questionPresentationTrial = firstStory.questions.map((question) => {
     type: jsPsychSurveyMultiChoice,
     questions: [
       {
-        prompt: `<div class="instrucciones instrucciones-preguntas"><p>${question.question}</p></div>`,
+        prompt: question.question,
         name: "response",
         options: question.answers.map((answer) => answer.answer),
         required: true
@@ -455,7 +455,7 @@ let questionPresentationTrial2 = secondStory.questions.map((question) => {
     type: jsPsychSurveyMultiChoice,
     questions: [
       {
-        prompt: `<div class="instrucciones instrucciones-preguntas"><p>${question.question}</p></div>`,
+        prompt: question.question,
         name: "response",
         options: question.answers.map((answer) => answer.answer),
         required: true
