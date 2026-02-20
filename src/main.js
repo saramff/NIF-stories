@@ -250,6 +250,7 @@ let sentencesPresentationStimuli = firstStory.sentences.map((sentence) => {
     type: sentence.type,
     keyword1: sentence.keyword1,
     keyword2: sentence.keyword2,
+    classification: sentence.base ? "base" : "experimental",
   };
 });
 
@@ -263,6 +264,7 @@ let sentencesPresentation = {
     type: jsPsych.timelineVariable("type"),
     keyword1: jsPsych.timelineVariable("keyword1"),
     keyword2: jsPsych.timelineVariable("keyword2"),
+    classification: jsPsych.timelineVariable("classification"),
   },
 };
 
@@ -313,7 +315,7 @@ let questionPresentationTrial = firstStory.questions.map((question) => {
     type: jsPsychSurveyMultiChoice,
     questions: [
       {
-        prompt: question.question,
+        prompt: `<div class="instrucciones instrucciones-preguntas"><p>${question.question}</p></div>`,
         name: "response",
         options: question.answers.map((answer) => answer.answer),
         required: true
@@ -453,7 +455,7 @@ let questionPresentationTrial2 = secondStory.questions.map((question) => {
     type: jsPsychSurveyMultiChoice,
     questions: [
       {
-        prompt: question.question,
+        prompt: `<div class="instrucciones instrucciones-preguntas"><p>${question.question}</p></div>`,
         name: "response",
         options: question.answers.map((answer) => answer.answer),
         required: true
