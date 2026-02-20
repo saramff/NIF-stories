@@ -205,10 +205,10 @@ let instructionsSentencePresentation = {
   stimulus: `
   <div class="instrucciones">
     <p>Ahora va a leer una historia.</p>
-    <p>La historia se presentará <strong>en segmentos</strong> (por ejemplo, una frase cada vez).</p>
-    <p>Su tarea consiste únicamente en <strong>leer detenidamente</strong> la información.</p>
+    <p>La historia se presentará en segmentos (por ejemplo, una frase cada vez).</p>
+    <p>Su tarea consiste en <strong>leer detenidamente y de forma comprensiva</strong> la información, <strong>imaginándose dentro de la situación</strong> que describe la historia.</p>
     <p><strong>Muy importante:</strong> preste mucha atención durante la lectura, porque <strong>después le haremos unas preguntas</strong> sobre el contenido del texto.</p>
-    <p>Para poder responder correctamente, asegúrese de <strong>comprender bien cada fragmento</strong> antes de pasar al siguiente.</p>
+    <p>Para poder responder correctamente, asegúrese de comprender bien cada fragmento antes de pasar al siguiente.</p>
     <p>Puede tomarse el tiempo que necesite para leer cada fragmento:<br>
     <strong>usted</strong> decidirá cuándo pasar al siguiente.</p>
     <p>Para avanzar y ver el siguiente fragmento, pulse la <strong>barra espaciadora</strong>.</p>
@@ -216,8 +216,7 @@ let instructionsSentencePresentation = {
     <p><strong>Pulse la barra espaciadora para comenzar.</strong></p>
   </div>
   `,
-  choices: [' '],
-  post_trial_gap: 500,
+  choices: [' ']
 };
 timeline.push(instructionsSentencePresentation);
 
@@ -228,8 +227,8 @@ let instructionsSentencePresentation_reminder = {
   stimulus: `
   <div class="instrucciones">
     <p>⚠️ <strong>Recuerda:</strong></p>
-    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>.</p>
-    <p>Al finalizar la lectura, <strong>responderás preguntas sobre su contenido</strong>.</p>
+    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>, de forma <strong>comprensiva</strong> e <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
+    <p>Al finalizar la lectura, responderás preguntas sobre su contenido.</p>
     <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
     <br />
     <p><strong>Pulse la barra espaciadora para comenzar la lectura.</strong></p>
@@ -352,12 +351,12 @@ let instructionsSentencePresentation2 = {
   <div class="instrucciones">
     <p>Ahora va a leer un segundo texto.</p>
     <p>Al igual que antes, el texto se presentará en pantallas sucesivas.</p>
-    <p>Su tarea es la misma: <strong>lea detenidamente</strong> cada parte del texto.</p>
+    <p>Su tarea es la misma: <strong>lea detenidamente y de forma comprensiva</strong> cada parte del texto, <strong>imaginándose dentro de la situación</strong> que describe la historia.</p>
     <p>Es importante que preste atención, porque al finalizar le haremos unas preguntas sobre el contenido.</p>
     <p>No hay límite de tiempo: puede tomarse el tiempo que necesite en cada pantalla.<br>
     Para avanzar, pulse la <strong>barra espaciadora</strong>.</p>
     <br />
-    <p>Pulse la barra espaciadora para comenzar.<p>
+    <p>Pulse la barra espaciadora para comenzar.</p>
    </div>
   `,
   choices: [' '],
@@ -371,8 +370,8 @@ let instructionsSentencePresentation_reminder2 = {
   stimulus: `
   <div class="instrucciones">
     <p>⚠️ <strong>Recuerda:</strong></p>
-    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>.</p>
-    <p>Al finalizar la lectura, <strong>responderás preguntas sobre su contenido</strong>.</p>
+    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>, de forma <strong>comprensiva</strong> e <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
+    <p>Al finalizar la lectura, responderás preguntas sobre su contenido.</p>
     <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
     <br />
     <p><strong>Pulse la barra espaciadora para comenzar la lectura.</strong></p>
