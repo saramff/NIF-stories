@@ -80,6 +80,50 @@ shuffle(words);
 /* Initialize jsPsych */
 let jsPsych = initJsPsych();
 
+// ======================================================
+// Quitar automáticamente el asterisco (*) de required
+// en jsPsych survey (v8)
+// ======================================================
+
+function removeRequiredAsterisks() {
+
+  // 1) Si el * es un span/sup o elemento independiente
+  document
+    .querySelectorAll(
+      ".jspsych-survey-multi-choice-question span, " +
+      ".jspsych-survey-text-question span, " +
+      ".jspsych-survey-multi-choice-question sup, " +
+      ".jspsych-survey-text-question sup, " +
+      ".jspsych-survey-multi-choice-question .required, " +
+      ".jspsych-survey-text-question .required"
+    )
+    .forEach(el => {
+      if (el.textContent.trim() === "*") el.remove();
+    });
+
+  // 2) Si el * está pegado al texto del prompt
+  document
+    .querySelectorAll(
+      ".jspsych-survey-multi-choice-question, .jspsych-survey-text-question"
+    )
+    .forEach(q => {
+      q.querySelectorAll("p, legend, label, div").forEach(node => {
+        node.childNodes.forEach(child => {
+          if (child.nodeType === Node.TEXT_NODE) {
+            child.textContent = child.textContent.replace(/\*\s*$/, "");
+          }
+        });
+      });
+    });
+}
+
+// Ejecutar una vez
+removeRequiredAsterisks();
+
+// Observar cambios de pantalla (jsPsych renderiza dinámicamente)
+const observer = new MutationObserver(() => removeRequiredAsterisks());
+observer.observe(document.body, { childList: true, subtree: true });
+
 /* Create timeline */
 let timeline = [];
 
@@ -269,7 +313,7 @@ let sentencesPresentation = {
 
 /* Test procedure: fixation + sentences presentation */
 let sentencesPresentationProcedure = {
-  timeline: [fixation, sentencesPresentation],
+  timeline: [sentencesPresentation],
   timeline_variables: sentencesPresentationStimuli,
 };
 timeline.push(sentencesPresentationProcedure);
@@ -337,7 +381,7 @@ let questionPresentationTrial = firstStory.questions.map((question) => {
 
 /* Test procedure: fixation + questions presentation */
 let questionPresentationProcedure = {
-  timeline: [fixation, questionPresentationTrial],
+  timeline: [questionPresentationTrial],
 };
 timeline.push(questionPresentationProcedure);
 
@@ -409,7 +453,7 @@ let sentencesPresentation2 = {
 
 /* Test procedure: fixation + sentences presentation */
 let sentencesPresentationProcedure2 = {
-  timeline: [fixation, sentencesPresentation2],
+  timeline: [sentencesPresentation2],
   timeline_variables: sentencesPresentationStimuli2,
 };
 timeline.push(sentencesPresentationProcedure2);
@@ -477,7 +521,7 @@ let questionPresentationTrial2 = secondStory.questions.map((question) => {
 
 /* Test procedure: fixation + questions presentation */
 let questionPresentationProcedure2 = {
-  timeline: [fixation, questionPresentationTrial2],
+  timeline: [questionPresentationTrial2],
 };
 timeline.push(questionPresentationProcedure2);
 
