@@ -137,7 +137,7 @@ let check_consent = (elem) => {
     return true;
   }
   else {
-    alert("Muchas gracias por su interés en nuestro experimento. Si está listo para participar, por favor, dénos su consentimiento.");
+    alert("Muchas gracias por tu interés en nuestro experimento. Si estás listo para participar, por favor, danos tu consentimiento.");
     return false;
   }
   return false;
@@ -159,7 +159,7 @@ timeline.push(html_block_consent);
 timeline.push({
   type: jsPsychFullscreen,
   fullscreen_mode: true,
-  message: '<p>Por favor, haga clic para cambiar al modo de pantalla completa.</p>',
+  message: '<p>Por favor, haz clic para cambiar al modo de pantalla completa.</p>',
   button_label:'Continuar',
   on_finish: function(data){
     var help_fullscreen = data.success;
@@ -169,10 +169,10 @@ timeline.push({
 
 var age = {
   type: jsPsychSurveyText,
-    preamble: 'A continuación, le preguntaremos algunos datos.',
+    preamble: 'A continuación, te preguntaremos algunos datos.',
     name: 'age',
     button_label:'Continuar',
-    questions: [{prompt:'<div>¿Cuántos años tiene?<\div>', rows: 1, columns: 2, required: 'true'}],
+    questions: [{prompt:'<div>¿Cuántos años tienes?<\div>', rows: 1, columns: 2, required: 'true'}],
   data: {
     type:"demo",
     age: age,
@@ -192,14 +192,14 @@ var demo2 = {
   type: jsPsychSurveyMultiChoice,
   questions: [
     {
-      prompt:'Por favor, seleccione el género con el que se identifica.',
+      prompt:'Por favor, selecciona el género con el que te identificas.',
       name: 'gender',
       options: ["masculino", "femenino", "otro", "prefiero no decirlo"],
       required: true,
       horizontal: true
     },
      {
-      prompt:'Por favor, seleccione su lengua materna.',
+      prompt:'Por favor, selecciona tu lengua materna.',
       name: 'language',
       options: ["español", "otro"],
       required: true,
@@ -234,7 +234,7 @@ let welcome = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `<div class="instrucciones">
   <p>Bienvenido al experimento.</p>
-  <p>Pulse la barra espaciadora para comenzar.</p>
+  <p>Pulsa la barra espaciadora para comenzar.</p>
 </div>`,
   choices: [' '],
 };
@@ -248,16 +248,16 @@ let instructionsSentencePresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora va a leer una historia.</p>
+    <p>Ahora vas a leer una historia.</p>
     <p>La historia se presentará en segmentos (por ejemplo, una frase cada vez).</p>
-    <p>Su tarea consiste en <strong>leer detenidamente y de forma comprensiva</strong> la información, <strong>imaginándose dentro de la situación</strong> que describe la historia.</p>
-    <p><strong>Muy importante:</strong> preste mucha atención durante la lectura, porque <strong>después le haremos unas preguntas</strong> sobre el contenido del texto.</p>
-    <p>Para poder responder correctamente, asegúrese de comprender bien cada fragmento antes de pasar al siguiente.</p>
-    <p>Puede tomarse el tiempo que necesite para leer cada fragmento:<br>
-    <strong>usted</strong> decidirá cuándo pasar al siguiente.</p>
-    <p>Para avanzar y ver el siguiente fragmento, pulse la <strong>barra espaciadora</strong>.</p>
+    <p>Tu tarea consiste en <strong>leer detenidamente y de forma comprensiva</strong> la información, <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
+    <p><strong>Muy importante:</strong> presta mucha atención durante la lectura, porque <strong>después te haremos unas preguntas</strong> sobre el contenido del texto.</p>
+    <p>Para poder responder correctamente, asegúrate de comprender bien cada fragmento antes de pasar al siguiente.</p>
+    <p>Puedes tomarte el tiempo que necesites para leer cada fragmento:<br>
+    <strong>Tú</strong> decidirás cuándo pasar al siguiente.</p>
+    <p>Para avanzar y ver el siguiente fragmento, pulsa la <strong>barra espaciadora</strong>.</p>
     <br />
-    <p><strong>Pulse la barra espaciadora para comenzar.</strong></p>
+    <p><strong>Pulsa la barra espaciadora para comenzar.</strong></p>
   </div>
   `,
   choices: [' ']
@@ -275,7 +275,7 @@ let instructionsSentencePresentation_reminder = {
     <p>Al finalizar la lectura, responderás preguntas sobre su contenido.</p>
     <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
     <br />
-    <p><strong>Pulse la barra espaciadora para comenzar la lectura.</strong></p>
+    <p><strong>Pulsa la barra espaciadora para comenzar la lectura.</strong></p>
   </div>
   `,
   choices: [' '],
@@ -325,7 +325,7 @@ let endOfStory1 = {
   <div class="instrucciones">
     <p>— Fin del texto —</p>
     <br />
-    <p><strong>Pulse la barra espaciadora para continuar.</strong></p>
+    <p><strong>Pulsa la barra espaciadora para continuar.</strong></p>
   </div>
   `,
   choices: [' '],
@@ -340,11 +340,11 @@ let instructionsQuestions = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>A continuación verá una serie de preguntas sobre el texto que acaba de leer.</p>
-    <p>Lea cada pregunta con atención y seleccione con el <strong>ratón</strong> la respuesta que considere correcta.</p>
-    <p>No hay límite de tiempo, pero intente responder basándose únicamente en la información presentada en el texto.</p>
+    <p>A continuación verás una serie de preguntas sobre el texto que acabas de leer.</p>
+    <p>Lee cada pregunta con atención y selecciona con el <strong>ratón</strong> la respuesta que consideres correcta.</p>
+    <p>No hay límite de tiempo, pero responde basándote únicamente en la información presentada en el texto.</p>
     <br />
-    <p>Pulse la barra espaciadora para comenzar.<p>
+    <p>Pulsa la barra espaciadora para comenzar.<p>
   </div>
   `,
   choices: [' '],
@@ -393,14 +393,14 @@ let instructionsSentencePresentation2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora va a leer un segundo texto.</p>
+    <p>Ahora vas a leer un segundo texto.</p>
     <p>Al igual que antes, el texto se presentará en pantallas sucesivas.</p>
-    <p>Su tarea es la misma: <strong>lea detenidamente y de forma comprensiva</strong> cada parte del texto, <strong>imaginándose dentro de la situación</strong> que describe la historia.</p>
-    <p>Es importante que preste atención, porque al finalizar le haremos unas preguntas sobre el contenido.</p>
-    <p>No hay límite de tiempo: puede tomarse el tiempo que necesite en cada pantalla.<br>
-    Para avanzar, pulse la <strong>barra espaciadora</strong>.</p>
+    <p>Tu tarea es la misma: <strong>lee detenidamente y de forma comprensiva</strong> cada parte del texto, <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
+    <p>Es importante que prestes atención, porque al finalizar te haremos unas preguntas sobre el contenido.</p>
+    <p>No hay límite de tiempo: puedes tomarte el tiempo que necesites en cada pantalla.<br>
+    Para avanzar, pulsa la <strong>barra espaciadora</strong>.</p>
     <br />
-    <p>Pulse la barra espaciadora para comenzar.</p>
+    <p>Pulsa la barra espaciadora para comenzar.</p>
    </div>
   `,
   choices: [' '],
@@ -418,7 +418,7 @@ let instructionsSentencePresentation_reminder2 = {
     <p>Al finalizar la lectura, responderás preguntas sobre su contenido.</p>
     <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
     <br />
-    <p><strong>Pulse la barra espaciadora para comenzar la lectura.</strong></p>
+    <p><strong>Pulsa la barra espaciadora para comenzar la lectura.</strong></p>
   </div>
   `,
   choices: [' '],
@@ -465,7 +465,7 @@ let endOfStory2 = {
   <div class="instrucciones">
     <p>— Fin del texto —</p>
     <br />
-    <p><strong>Pulse la barra espaciadora para continuar.</strong></p>
+    <p><strong>Pulsa la barra espaciadora para continuar.</strong></p>
   </div>
   `,
   choices: [' '],
@@ -480,11 +480,11 @@ let instructionsQuestions2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>A continuación verá una serie de preguntas sobre este segundo texto que acaba de leer.</p>
-    <p>Lea cada pregunta con atención y seleccione con el <strong>ratón</strong> la respuesta que considere correcta.</p>
-    <p>Intente responder basándose únicamente en la información presentada en el texto.</p>
+    <p>A continuación verás una serie de preguntas sobre este segundo texto que acabas de leer.</p>
+    <p>Lee cada pregunta con atención y selecciona con el <strong>ratón</strong> la respuesta que consideres correcta.</p>
+    <p>Responde basándote únicamente en la información presentada en el texto.</p>
     <br />
-    <p>Pulse la barra espaciadora para comenzar.<p>
+    <p>Pulsa la barra espaciadora para comenzar.<p>
   </div>
   `,
   choices: [' '],
@@ -534,19 +534,19 @@ let instructionstetris = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora jugará al Tetris durante aproximadamente 20 minutos.</p>
+    <p>Ahora jugarás al Tetris durante aproximadamente 20 minutos.</p>
     <p>En Tetris, hay piezas de diferentes formas que caen desde la parte superior de la pantalla.</p>
-    <p>Su objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas.</p>
-    <p>Cuando una línea se completa, desaparece. Si las piezas se acumulan hasta llegar a la parte superior, pierde.</p>
+    <p>Tu objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas.</p>
+    <p>Cuando una línea se completa, desaparece. Si las piezas se acumulan hasta llegar a la parte superior, pierdes.</p>
     <p>Controles:</p>
     <p><strong>Flecha izquierda:</strong> Mueve la pieza a la izquierda</p>
     <p><strong>Flecha derecha:</strong> Mueve la pieza a la derecha</p>
     <p><strong>Flecha arriba:</strong> Gira la pieza</p>
     <p><strong>Flecha abajo:</strong> Acelera la caída</p>
-    <p>Cuando aparezca la pantalla del juego, haga clic en <strong>"Play"</strong> para iniciar.</p>
-    <p>Si pierde, seleccione <strong>"Try again"</strong> para reiniciar. Jugará de esta manera hasta que se agote el tiempo.</p>
+    <p>Cuando aparezca la pantalla del juego, haz clic en <strong>"Play"</strong> para iniciar.</p>
+    <p>Si pierdes, selecciona <strong>"Try again"</strong> para reiniciar. Jugarás de esta manera hasta que se agote el tiempo.</p>
     <br />
-    <p><strong>Pulse la barra espaciadora para comenzar.</strong></p>
+    <p><strong>Pulsa la barra espaciadora para comenzar.</strong></p>
   </div>
   `,
   choices: [' '],
@@ -575,16 +575,16 @@ let instructionsWordsPresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora realizará la siguiente tarea:</p>
-    <p>A continuación verá una serie de <strong>palabras</strong> en la pantalla que se mostrarán una a una.</p>
-    <p>Algunas de estas palabras han podido aparecer en los textos que leyó anteriormente y otras serán nuevas.</p>
-    <p>Su tarea consiste en indicar si cada palabra estuvo <strong>PRESENTE</strong> o <strong>NO PRESENTE</strong> en cualquiera de los dos textos.</p>
+    <p>Ahora realizarás la siguiente tarea:</p>
+    <p>A continuación verás una serie de <strong>palabras</strong> en la pantalla que se mostrarán una a una.</p>
+    <p>Algunas de estas palabras han podido aparecer en los textos que leíste anteriormente y otras serán nuevas.</p>
+    <p>Tu tarea consiste en indicar si cada palabra estuvo <strong>PRESENTE</strong> o <strong>NO PRESENTE</strong> en cualquiera de los dos textos.</p>
 
-    <p>Para responder hará lo siguiente:</p>
-    <p><strong>Si ha visto<strong> antes el objeto, pulse la tecla '${correctKey.toUpperCase()}' (presente).</p>
-    <p><strong>Si no ha visto<strong> antes el objeto, pulse la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
-    <p>Le recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
-    <p>Pulse la barra espaciadora para comenzar.</p>
+    <p>Para responder harás lo siguiente:</p>
+    <p><strong>Si has visto<strong> antes el objeto, pulsa la tecla '${correctKey.toUpperCase()}' (presente).</p>
+    <p><strong>Si no has visto<strong> antes el objeto, pulsa la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
+    <p>Te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+    <p>Pulsa la barra espaciadora para comenzar.</p>
   </div>
   `,
   choices: [' '],
