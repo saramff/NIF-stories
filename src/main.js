@@ -534,7 +534,7 @@ let instructionstetris = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora jugarás al Tetris durante aproximadamente 20 minutos.</p>
+    <p>Ahora jugarás al Tetris durante 5 minutos.</p>
     <p>En Tetris, hay piezas de diferentes formas que caen desde la parte superior de la pantalla.</p>
     <p>Tu objetivo es moverlas y girarlas para que encajen y formen líneas horizontales completas.</p>
     <p>Cuando una línea se completa, desaparece. Si las piezas se acumulan hasta llegar a la parte superior, pierdes.</p>
@@ -562,7 +562,7 @@ let tetris = {
   `,
   post_trial_gap: 500,
   choices: "NO_KEYS", // Prevent key press
-  trial_duration: 1, 
+  trial_duration: 300000, 
 };
 timeline.push(tetris);
 
