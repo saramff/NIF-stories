@@ -479,7 +479,7 @@ export const stories = [
         answers: [
           {
             correct: true,
-            answer: "Según su tamaño o función",
+            answer: "Según su tamaño y función",
           },
           {
             correct: false,
