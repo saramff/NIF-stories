@@ -562,7 +562,7 @@ let tetris = {
   `,
   post_trial_gap: 500,
   choices: "NO_KEYS", // Prevent key press
-  trial_duration: 300000, 
+  trial_duration: 900000, 
 };
 timeline.push(tetris);
 
